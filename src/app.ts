@@ -1,6 +1,6 @@
 import {Router, RouterConfiguration} from 'aurelia-router';
 import {inject} from 'aurelia-framework';
-import {WebAPI} from './web-api';
+import {WebAPI} from './services/contacts-api';
 
 @inject(WebAPI)
 export class App {
@@ -11,8 +11,8 @@ export class App {
   configureRouter(config: RouterConfiguration, router: Router){
     config.title = 'Contacts';
     config.map([
-      { route: '',              moduleId: 'no-selection',   title: 'Select'},
-      { route: 'contacts/:id',  moduleId: 'contact-detail', name:'contacts' }
+      { route: '',              moduleId: './no-selection',   title: 'Select'},
+      { route: 'contacts/:id',  moduleId: './contacts/contact-detail', name:'contacts' }
     ]);
 
     this.router = router;
